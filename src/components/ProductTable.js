@@ -1,24 +1,34 @@
 import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
-function ProductTable({ products }) {
+function ProductTable({ products, filterText, inStockOnly }) {
     const rows = [];
     let lastCategory = null;
   
     products.forEach((product) => {
-      if (product.category !== lastCategory) {
+        if ( product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1 ) {
+            return;
+        }
+        
+        if (inStockOnly && !product.stocked) {
+            return;
+        }
+
+        if (product.category !== lastCategory) {
+            rows.push(
+                <ProductCategoryRow
+                    category={product.category}
+                    key={product.category} />
+            );
+        }
+
         rows.push(
-          <ProductCategoryRow
-            category={product.category}
-            key={product.category} />
+            <ProductRow
+                product={product}
+                key={product.name} />
         );
-      }
-      rows.push(
-        <ProductRow
-          product={product}
-          key={product.name} />
-      );
-      lastCategory = product.category;
+
+        lastCategory = product.category;
     });
 
     return (

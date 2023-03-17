@@ -1,13 +1,16 @@
-function SearchBar() {
-    // TODO: Monitor search string and apply state to filter product table
-
-    // TODO: Monitor filter control and apply state to filter product table
-
+function SearchBar({ filterText, inStockOnly, onFilterTextChange, onInStockOnlyChange }) {
     return (
         <form>
-          <input type="text" placeholder="Search..." />
+          <input 
+            type="text" 
+            value={filterText} 
+            placeholder="Search..." 
+            onChange={(e) => onFilterTextChange(e.target.value)}/>
           <label>
-            <input type="checkbox" />
+            <input 
+            type="checkbox"
+            checked={inStockOnly}
+            onChange={(e) => onInStockOnlyChange(e.target.checked)} />
             {' '}
             Only show products in stock
           </label>
