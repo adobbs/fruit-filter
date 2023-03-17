@@ -1,11 +1,14 @@
-function FilterableProductTable() {
-    // TODO: Take in Products data
+import ProductTable from "./ProductTable";
+import SearchBar from "./SearchBar";
+
+function FilterableProductTable({ products }) {
 
     // TODO: Modify products data based on state of search and filter control.
 
     return (
         <>
-            {/* TODO: SearchBar and ProductTable */}
+            <SearchBar />
+            <ProductTable products={products} />
         </>
     );
 }

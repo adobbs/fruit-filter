@@ -4,9 +4,14 @@ function SearchBar() {
     // TODO: Monitor filter control and apply state to filter product table
 
     return (
-        <>
-            {/* TODO: Search field and filter control */}
-        </>
+        <form>
+          <input type="text" placeholder="Search..." />
+          <label>
+            <input type="checkbox" />
+            {' '}
+            Only show products in stock
+          </label>
+        </form>
     );
 }
 

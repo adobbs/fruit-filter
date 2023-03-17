@@ -1,3 +1,5 @@
+import FilterableProductTable from "./components/FilterableProductTable";
+
 function App() {
   const PRODUCTS = [
     {category: "Fruits", price: "$1", stocked: true, name: "Apple"},
@@ -10,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      TODO
+      <FilterableProductTable products={PRODUCTS} />
     </div>
   );
 }

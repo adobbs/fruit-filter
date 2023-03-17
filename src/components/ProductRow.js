@@ -1,10 +1,14 @@
-function ProductRow() {
-    // TODO: Take in Product row data
-
+function ProductRow({ product }) {
+    const name = product.stocked ? product.name :
+    <span style={{ color: 'red' }}>
+      {product.name}
+    </span>;
+    
     return (
-        <>
-            {/* TODO: Product name and price */}
-        </>
+        <tr>
+            <td>{name}</td>
+            <td>{product.price}</td>
+        </tr>
     );
 }
 

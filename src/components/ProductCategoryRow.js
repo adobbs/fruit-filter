@@ -1,10 +1,8 @@
-function ProductCategoryRow() {
-    // TODO: Take in Product category data
-
+function ProductCategoryRow({ category }) {
     return (
-        <>
-            {/* TODO: Category name */}
-        </>
+        <tr>
+            <th colSpan="2">{category}</th>
+        </tr>
     );
 }
 
